@@ -13,6 +13,8 @@
   hosts: lmt_server
   gather_facts: true
   gather_subset: "!all,!min"
+  become: "{{ become }}"
+  become_user: "{{ become_user }}"
   tasks:
     - name: "Refreshing scanners installer cache from ILMT server on Windows"
       include_role:
