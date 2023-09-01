@@ -19,12 +19,16 @@
     - name: "Refreshing scanners installer cache from ILMT server on Windows"
       include_role:
         name: ilmt_scanner
+        become: "{{ become }}"
+        become_user: "{{ become_user }}"
         tasks_from: refresh_installers_cache_windows
       when: ansible_facts['os_family'] == 'Windows'
 
     - name: "Refreshing scanners installer cache from ILMT server on Linux"
       include_role:
         name: ilmt_scanner
+        become: "{{ become }}"
+        become_user: "{{ become_user }}"
         tasks_from: refresh_installers_cache_unix
       when: ansible_facts['os_family'] != 'Windows'
 
