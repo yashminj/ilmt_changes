@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   gather_facts: false
+  become: "{{ become }}"
+  become_user: "{{ become_user }}"
   tasks:
     - include_role:
         name: ilmt_scanner
