@@ -40,6 +40,9 @@
             tasks_from: install_scanner_windows
       when: ansible_facts['os_family'] == 'Windows'
 
+    - debug:
+        msg: "{{ become_user }}"
+        
     - name: "Install or upgrade ILMT scanners on UNIX/Linux endpoints"
       become: true
       block:
