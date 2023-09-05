@@ -35,9 +35,9 @@
   gather_subset: "!all,!min"
   tasks:
     - name: "Install or upgrade ILMT scanners on WINDOWS endpoints"
-      become: "{{ become }}"
-      become_user: "{{ become_user }}"
-      become_method: runas
+      #become: "{{ become }}"
+      #become_user: "{{ become_user }}"
+      #become_method: runas
       block:
         - include_role:
             name: ilmt_scanner
