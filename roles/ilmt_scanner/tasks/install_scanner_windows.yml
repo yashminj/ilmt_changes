@@ -120,27 +120,6 @@
         name: ilmt_scanner
         tasks_from: setup_scanner_windows
 
-    - name: "Give FullControl rights to {{ ansible_user }} for ILMT scanner directory on Windows endpoints"
-      ansible.windows.win_acl:
-        path: "{{ lmt_scanner_path_windows }}"
-        user: "{{ ansible_user }}"
-        type: allow
-        rights: Read,Write,Modify,FullControl,Delete
-        inherit: ContainerInherit, ObjectInherit
-        state: present
-        propagation: 'None'
-
-    #  I have no idea why it is needed to give special permissions for logs folder.. it should be cover by parent directory (above task)
-    - name: "Give FullControl rights to {{ ansible_user }} for logs directory on Windows endpoints"
-      ansible.windows.win_acl:
-        path: "{{ lmt_scanner_path_windows }}\\logs"
-        user: "{{ ansible_user }}"
-        type: allow
-        rights: Read,Write,Modify,FullControl,Delete
-        inherit: ContainerInherit, ObjectInherit
-        state: present
-        propagation: 'None'
-
     - name: "Delete config_backup from Windows endpoints"
       win_file:
         state: absent
