@@ -31,9 +31,6 @@
   gather_subset: "!all,!min"
   tasks:
     - name: "Install or upgrade ILMT scanners on WINDOWS endpoints"
-      #become: yes
-      #become_user: "0000000117-1CAS"
-      #become_method: runas
       block:
         - include_role:
             name: ilmt_scanner
