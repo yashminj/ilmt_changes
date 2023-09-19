@@ -9,8 +9,6 @@
 
 - name: "Refreshing scanners installer cache on Control Node"
   hosts: lmt_server
-  ansible_become: true
-  ansible_become_method: enable
   gather_facts: true
   gather_subset: "!all,!min"
   tasks:
