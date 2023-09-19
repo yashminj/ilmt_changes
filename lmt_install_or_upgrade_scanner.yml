@@ -31,6 +31,9 @@
   gather_subset: "!all,!min"
   tasks:
     - name: "Install or upgrade ILMT scanners on WINDOWS endpoints"
+      become: true
+      become_user: "{{ become_user }}"
+      become_method: "{{ become_method }}"
       block:
         - include_role:
             name: ilmt_scanner
